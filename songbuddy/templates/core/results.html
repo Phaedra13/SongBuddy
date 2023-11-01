@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>My Index page</title>
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'songbuddy/styles.css' %}">   
+    
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="Title">Songbuddy</h1>
+
+      <form action="{% url 'core:results' %}" method="get">
+        {% csrf_token %}
+        <label for="search">Search:</label>
+          <input type="text" id="search" name="word" placeholder="Enter your search">
+          <button type="submit">Search</button>
+      </form>
+
+      <h2> Rhymes for the word: <span class="searchedWord">{{ word }}</span></h2>
+
+      <ul>
+        {% for rhyme in rhymes %}
+            <li>{{ rhyme.word }}</li>
+        {% endfor %}
+      </ul>
+    
+    </div>
+  </body>
+</html>
+
