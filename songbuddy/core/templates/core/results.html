@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>My Index page</title>
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'songbuddy/styles.css' %}">   
+    
+  </head>
+  <body>
+    <h1 class="Title">Songbuddy</h1>
+    <h2> Results Page!</h2>
+
+    
+    <ul>
+       {for rhymes in conet}
+    </ul>
+    
+
+  </body>
+</html>
+

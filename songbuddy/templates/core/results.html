@@ -1,34 +1,65 @@
-<!doctype html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <title>My Index page</title>
+{% extends 'core/base_layout.html' %}
+{% block content %}
 
-    {% load static %}
 
-    <link rel="stylesheet" href="{% static 'songbuddy/styles.css' %}">   
-    
-  </head>
-  <body>
-    <div class="container">
-      <h1 class="Title">Songbuddy</h1>
+<div class="second_container">
+<h2>Searched word: <span class="searchedWord">{{ word }}</span></h2>
 
-      <form action="{% url 'core:results' %}" method="get">
-        {% csrf_token %}
-        <label for="search">Search:</label>
-          <input type="text" id="search" name="word" placeholder="Enter your search">
-          <button type="submit">Search</button>
-      </form>
-
-      <h2> Rhymes for the word: <span class="searchedWord">{{ word }}</span></h2>
-
-      <ul>
-        {% for rhyme in rhymes %}
-            <li>{{ rhyme.word }}</li>
-        {% endfor %}
-      </ul>
-    
+  <div class="wrapper">
+    <div class="word_box rhymes">
+      <h2> <span class="highlight_word"> Rhymes</span></h2>
+        <h3> 1 syllable:</h3>
+        {{ one_rhymes }}
+        <h3> 2 syllables:</h3>
+        {{ two_rhymes }}
+        <h3> 3 syllables:</h3>
+        {{ three_rhymes }}
+        <h3> 4 syllables:</h3>
+        {{ four_rhymes }}
+        <h3> 5 syllables:</h3>
+        {{ five_rhymes }}
+        <h3> 6 syllables:</h3>
+        {{ six_rhymes }}
+        <h3> 7 syllables:</h3>
+        {{ seven_rhymes }}
+        <h3> 8 syllables:</h3>
+        {{ eight_rhymes }}
+        <h3> 9 syllables:</h3>
+        {{ nine_rhymes }}
+        <h3> 10 syllables:</h3>
+        {{ ten_rhymes }}
     </div>
-  </body>
-</html>
+
+    <div class="word_box near_rhymes">
+      <h2> <span class="highlight_word"> Near rhymes</span></h2>
+        <div class="near_rhymes_list">
+          <ul>
+            {%for rhyme in near_rhymes_match %}
+            <li class="near_rhymes_match">{{ rhyme }}</li>
+            {% endfor %}
+            {%for rhyme in near_rhymes_no_match %}
+            <li class="near_rhymes_no_match">{{ rhyme }}</li>
+            {% endfor %}
+        </ul>
+      </div>
+    </div>
+      
+    <div class="word_box thesaurus">
+      <h2> <span class="highlight_word"> Synonyms</span></h2>
+        {{ synonyms }}
+    </div>
+
+    <div class="word_box similar_sound">
+      <h2> <span class="highlight_word"> Similar sounding words</span></h2>
+      {{ similar_words }}
+    </div>
+
+  </div>
+</div>
+
+
+{% endblock %}
+
+
+
 
