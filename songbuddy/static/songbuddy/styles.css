@@ -12,6 +12,7 @@ blue:     #4c04fc   //   rgb(76,4,252)
     font-family:Arial, Helvetica, sans-serif;
     box-sizing: border-box;
     font-size: 17px;
+    line-height: 25px;
 }
 
 body{
@@ -19,14 +20,20 @@ body{
     margin-bottom: 30px;
 }
 
+.container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-attachment: fixed;
+    margin-bottom: 30px;
+}
+
 .logo{
     width: 40%;
     height: auto;
     margin: 20px 0px 20px 0px;
-}
-
-.search_label{
-    
 }
 
 .input{
@@ -44,16 +51,6 @@ body{
     color: #F2E9BF;
     border: none;
     padding: 5px 15px 5px 15px;
-}
-
-.container{
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-attachment: fixed;
-    margin-bottom: 30px;
 }
 
 .second_container{
@@ -97,7 +94,7 @@ h3{
 }
 
 .highlight_word{
-    background-color: #f6bc64;
+    font-weight: bold;
     font-size: 30px;
 }
 
@@ -113,6 +110,7 @@ h3{
     list-style: none;
     background-color: #c4f4a4;
     padding: 0px 10px 0px 10px;
+    border: solid #0648a570;
 }
 
 .near_rhymes_no_match{
@@ -120,6 +118,7 @@ h3{
     list-style: none;
     background-color: #fbd650;
     padding: 0px 10px 0px 10px;
+    border: solid #0648a570;
 }
 
 ul{

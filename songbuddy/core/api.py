@@ -12,13 +12,6 @@ def getRhymes(word,syllable_count):
     rhyme_string = ", ".join(sorted_rhymes)
     return rhyme_string
 
-# def getNearRhymes(word):
-#     rhymebrain_url = f'https://rhymebrain.com/talk?function=getRhymes&word={word}'
-#     near_rhyme_words = requests.get(rhymebrain_url).json()
-#     near_rhyme_words_list = [entry['word'].capitalize() for entry in near_rhyme_words]
-#     near_rhyme_string = ", ".join(near_rhyme_words_list)
-#     return near_rhyme_string
-
 def getNearRhymes_match(word):
     rhymebrain_url = f'https://rhymebrain.com/talk?function=getRhymes&word={word}'
     near_rhyme_words = requests.get(rhymebrain_url).json()
@@ -50,5 +43,10 @@ def similarSounding(word):
     similar_string = ", ".join(similar_words_list)
     return similar_string
 
+# def getDefinition(word):
+#     dictionaryapi_url = f'https://api.dictionaryapi.dev/api/v2/entries/en/{word}'
+#     definition = requests.get(dictionaryapi_url).json()
+#     definition_filtered = [entry.get('meaning') for entry in definition]
+#     return definition_filtered
 
 

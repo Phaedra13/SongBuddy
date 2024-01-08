@@ -2,7 +2,6 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .api import getRhymes,getNearRhymes_match,getNearRhymes_noMatch,thesaurus,similarSounding
 
-
 def index(request):
     return render(request, "core/index.html")
 
@@ -40,10 +39,14 @@ def results(request):
         'near_rhymes_match': near_rhymes_match_data,
         'near_rhymes_no_match': near_rhymes_no_match_data,
         'synonyms': thesaurus_data,
-        'similar_words': similar_sound_data
+        'similar_words': similar_sound_data,
         #rhymes is what we replace in results.html
         #rhymes_data is what we replace it with, which we got from the api
     }
     return render(request, 'core/results.html', context)
+
+ 
+
+
 
  
